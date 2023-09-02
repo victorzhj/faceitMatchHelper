@@ -8,8 +8,8 @@ class UrlCreator
 {
 public:
     UrlCreator();
-    QUrl createMatchUrl(QString matchId);
-    QUrl createUserUrl(QString userName);
+    QUrl createMatchUrl(const QString &matchId);
+    QUrl createUserUrl(const QString &userName);
 
 private:
     QString body = "https://open.faceit.com/data/v4/";

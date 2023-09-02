@@ -1,4 +1,5 @@
 QT       += core gui
+QT       += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -11,18 +12,22 @@ CONFIG += c++17
 SOURCES += \
     controller/controller.cpp \
     main.cpp \
+    parsers/matchparser.cpp \
+    parsers/userparser.cpp \
+    utils/networker.cpp \
     utils/urlcreator.cpp \
     mainwindow.cpp \
-    model\model.cpp \
-    utils/retrievedata.cpp
+    model\model.cpp
 
 HEADERS += \
     controller/controller.h \
     model/model.h \
+    parsers/matchparser.h \
+    parsers/userparser.h \
+    utils/networker.h \
     utils/urlcreator.h \
     mainwindow.h \
-    model\model.h \
-    utils/retrievedata.h
+    model\model.h
 
 
 FORMS += \
