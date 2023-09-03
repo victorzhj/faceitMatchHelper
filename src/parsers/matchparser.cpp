@@ -9,12 +9,8 @@ MatchParser::MatchParser()
 QMap<QString, QVector<QString>> MatchParser::getData(QString &file)
 {
     QMap<QString, QVector<QString>> playersPerTeam;
-    qDebug() << file;
     QJsonDocument document = QJsonDocument::fromJson(file.toUtf8());
     QJsonObject jsonObject = document.object();
-    if (jsonObject.isEmpty()) {
-        qDebug() << "Object empty";
-    }
     QJsonObject teams = jsonObject.value("teams").toObject();
     QJsonObject faction1 = teams.value("faction1").toObject();
     QJsonObject faction2 = teams.value("faction2").toObject();

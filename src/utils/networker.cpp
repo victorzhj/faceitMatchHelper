@@ -18,7 +18,10 @@ QString Networker::requestData(const QUrl &url)
     QNetworkReply *reply = manager->get(request);
     loop.exec();
     //qDebug() << reply->readAll();
+    if (reply->error() == QNetworkReply::ContentNotFoundError) {
+        return "NOMATCH";
+    }
     faceitReply = reply->readAll();
-    qDebug() << faceitReply;
+    qDebug() << reply->error();
     return faceitReply;
 }
