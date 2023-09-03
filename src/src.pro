@@ -14,6 +14,7 @@ SOURCES += \
     main.cpp \
     parsers/matchparser.cpp \
     parsers/userparser.cpp \
+    parsers/userstatsparser.cpp \
     utils/networker.cpp \
     utils/urlcreator.cpp \
     mainwindow.cpp \
@@ -24,6 +25,7 @@ HEADERS += \
     model/model.h \
     parsers/matchparser.h \
     parsers/userparser.h \
+    parsers/userstatsparser.h \
     utils/networker.h \
     utils/urlcreator.h \
     mainwindow.h \

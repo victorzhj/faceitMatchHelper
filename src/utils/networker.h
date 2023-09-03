@@ -9,6 +9,7 @@
 #include <QDebug>
 #include <QObject>
 #include <QEventLoop>
+#include <fstream>
 
 class Networker : public QObject
 {
