@@ -1,7 +1,6 @@
 #ifndef USERPARSER_H
 #define USERPARSER_H
 
-#include <QMap>
 #include <QString>
 #include <QVector>
 #include <QJsonDocument>

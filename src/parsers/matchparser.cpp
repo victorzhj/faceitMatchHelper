@@ -21,23 +21,6 @@ QMap<QString, QVector<QString>> MatchParser::getData(QString &file)
     return playersPerTeam;
 }
 
-bool MatchParser::validateFile(QString &file)
-{
-    QJsonDocument document = QJsonDocument::fromJson(file.toUtf8());
-    if (document.isEmpty())
-    {
-        return false;
-    }
-    if (document.isArray())
-    {
-        return false;
-    }
-    else
-    {
-        return true;
-    }
-}
-
 QVector<QString> MatchParser::getPlayersId(QJsonObject &faction)
 {
     QVector<QString> playersIds;
