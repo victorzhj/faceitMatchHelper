@@ -22,7 +22,7 @@ int Model::getSkilLevel(const QString &playerName)
 
 QMap<QString, QString> Model::getMapWinRates(QString &matchUrl)
 {
-    matchUrlBreaker UrlBreaker(matchUrl);
+    MatchUrlBreaker UrlBreaker(matchUrl);
     QString matchId = UrlBreaker.getMatchId();
     UrlCreator urlCreator;
     Networker networker;
@@ -31,8 +31,12 @@ QMap<QString, QString> Model::getMapWinRates(QString &matchUrl)
     QString json = networker.requestData(url);
 
     MatchParser matchParser;
-    QMap<QString, QVector<QString>> teams = matchParser.getData(json);
+    QMap<QString, QVector<QString>> teams = matchParser.getMatchPlayersPerTeam(json);
 
+    for (QVector<QString> team : teams)
+    {
+
+    }
 
 }
 

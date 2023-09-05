@@ -6,7 +6,7 @@ MatchParser::MatchParser()
 
 }
 
-QMap<QString, QVector<QString>> MatchParser::getData(QString &file)
+QMap<QString, QVector<QString>> MatchParser::getMatchPlayersPerTeam(QString &file)
 {
     QMap<QString, QVector<QString>> playersPerTeam;
     QJsonDocument document = QJsonDocument::fromJson(file.toUtf8());

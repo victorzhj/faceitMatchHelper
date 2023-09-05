@@ -13,8 +13,8 @@ SOURCES += \
     controller/controller.cpp \
     main.cpp \
     parsers/matchparser.cpp \
+    parsers/userWinRateParser.cpp \
     parsers/userparser.cpp \
-    parsers/userstatsparser.cpp \
     utils/matchurlbreaker.cpp \
     utils/networker.cpp \
     utils/urlcreator.cpp \
@@ -25,8 +25,8 @@ HEADERS += \
     controller/controller.h \
     model/model.h \
     parsers/matchparser.h \
+    parsers/userWinRateParser.h \
     parsers/userparser.h \
-    parsers/userstatsparser.h \
     utils/matchurlbreaker.h \
     utils/networker.h \
     utils/urlcreator.h \

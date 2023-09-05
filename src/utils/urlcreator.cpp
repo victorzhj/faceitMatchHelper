@@ -7,18 +7,18 @@ UrlCreator::UrlCreator()
 
 QUrl UrlCreator::createMatchUrl(const QString &matchId)
 {
-    QString url = body + "matches/" + matchId;
+    QString url = body_ + "matches/" + matchId;
     return QUrl(url);
 }
 
 QUrl UrlCreator::createUserUrl(const QString &userName)
 {
-    QString url = body + "players?nickname?=" + userName;
+    QString url = body_ + "players?nickname?=" + userName;
     return QUrl(url);
 }
 
-QUrl UrlCreator::createUserStatsUrl(const QString &userId)
+QUrl UrlCreator::createUserWinRateUrl(const QString &userId)
 {
-    QString url = body + "players/" + userId + "/stats/csgo";
+    QString url = body_ + "players/" + userId + "/stats/csgo";
     return QUrl(url);
 }
