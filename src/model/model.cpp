@@ -54,7 +54,6 @@ QMap<team, QMap<map, winRates>> Model::getMapWinRates(QString &matchUrl)
             for (auto map = playerWinRatePerMap.cbegin(), end = playerWinRatePerMap.cend(); map != end; map++)
             {
                 tempMapWinRate[map.key()] += map.value();
-                qDebug() << tempMapWinRate[map.key()];
                 //tempMap[map.key()].append(map.value());
                 /**
                 if (tempMap.find(map.key()) != tempMap.end())
@@ -72,7 +71,8 @@ QMap<team, QMap<map, winRates>> Model::getMapWinRates(QString &matchUrl)
         for (auto map = tempMapWinRate.cbegin(), end = tempMapWinRate.cend(); map != end; map++)
         {
             tempMapWinRate[map.key()] = map.value() / 5 * 100;
-            //qDebug() << tempMapWinRate[map.key()];
+            qDebug() << map.key();
+            qDebug() << tempMapWinRate[map.key()];
         }
         mapWinRates.insert(team.key(), tempMapWinRate);
     }
