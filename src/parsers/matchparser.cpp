@@ -16,8 +16,8 @@ QMap<QString, QVector<QString>> MatchParser::getMatchPlayersPerTeam(QString &fil
     QJsonObject faction2 = teams.value("faction2").toObject();
     QVector<QString> team1 = getPlayersId(faction1);
     QVector<QString> team2 = getPlayersId(faction2);
-    playersPerTeam.insert("team1", team1);
-    playersPerTeam.insert("team2", team2);
+    playersPerTeam.insert("team 1", team1);
+    playersPerTeam.insert("team 2", team2);
     return playersPerTeam;
 }
 

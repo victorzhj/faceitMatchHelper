@@ -22,6 +22,6 @@ QString Networker::requestData(const QUrl &url)
         return "NOMATCH";
     }
     faceitReply = reply->readAll();
-    qDebug() << reply->error();
+    // qDebug() << reply->error();
     return faceitReply;
 }

@@ -3,8 +3,13 @@
 MatchUrlBreaker::MatchUrlBreaker(QString &matchUrl)
 {
     QStringList l = matchUrl.split('/');
-    qDebug() << l;
-    matchId_ = l.at(-1);
+    if (l.isEmpty())
+    {
+        matchId_ = "NO VALUE";
+        return;
+    }
+    matchId_ = l.back();
+    // qDebug() << matchId_;
 }
 
 QString MatchUrlBreaker::getMatchId()

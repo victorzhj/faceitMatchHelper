@@ -6,7 +6,7 @@
 #include "../utils/urlcreator.h"
 #include "../parsers/matchparser.h"
 #include "../parsers/userparser.h"
-#include "../parsers/userWinRateParser.h""
+#include "../parsers/userWinRateParser.h"
 
 #include <QMap>
 #include <QString>
@@ -21,12 +21,12 @@ class Model
 {
 public:
     Model();
-    void updateMatchWinRates(QString &matchUrl);
+    void updateMatchWinRates(QString matchUrl);
 
 private:
     int getElo(const QString &playerName);
     int getSkilLevel(const QString &playerName);
-    QMap<QString, QString> getMapWinRates(QString &matchUrl);
+    QMap<team, QMap<map, winRates>> getMapWinRates(QString &matchUrl);
     UserParser getUserParserObject(const QString &playerName);
 
 private slots:

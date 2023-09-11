@@ -12,7 +12,7 @@ QMap<QString, double> UserWinRateParser::getWinpercentage()
 
     QMap<QString, double> winRates;
     QJsonArray segments = jsonObject_.value("segments").toArray();
-    qDebug() << segments;
+    // qDebug() << segments;
     foreach (const QJsonValue mapStats, segments)
     {
         QJsonObject tempObject = mapStats.toObject();
@@ -27,8 +27,8 @@ QMap<QString, double> UserWinRateParser::getWinpercentage()
         }
         QJsonObject stats = tempObject.value("stats").toObject();
         double winRate = stats.value("Win Rate %").toDouble()/100;
-        qDebug() << mapName;
-        qDebug() << winRate;
+        // qDebug() << mapName;
+        // qDebug() << winRate;
         winRates.insert(mapName, winRate);
     }
     return winRates;
