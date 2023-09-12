@@ -14,7 +14,7 @@ QString Networker::requestData(const QUrl &url)
     connect(manager, &QNetworkAccessManager::finished, &loop, &QEventLoop::quit);
     request.setUrl(url);
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-    request.setRawHeader("Authorization",  APIkey.toLocal8Bit());
+    request.setRawHeader("Authorization",  APIkey_.toLocal8Bit());
     QNetworkReply *reply = manager->get(request);
     loop.exec();
     //qDebug() << reply->readAll();
@@ -22,6 +22,6 @@ QString Networker::requestData(const QUrl &url)
         return "NOMATCH";
     }
     faceitReply = reply->readAll();
-    qDebug() << reply->error();
+    // qDebug() << reply->error();
     return faceitReply;
 }
