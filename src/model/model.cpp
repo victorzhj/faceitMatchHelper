@@ -1,6 +1,9 @@
 #include "model.h"
+#include <thread>
+#include <mutex>
 
-
+std::mutex playerMutex;
+std::mutex mapMutex;
 
 Model::Model()
 {
@@ -38,7 +41,15 @@ QMap<team, QMap<map, winRates>> Model::getMapWinRates(QString &matchUrl)
 
     MatchParser matchParser;
     QMap<QString, QVector<QString>> teams = matchParser.getMatchPlayersPerTeam(json);
+    std::vector<std::thread> teamThreads;
+    for (auto team = teams.cbegin(), end = teams.cend(); team != end; team++)
+    {
+        teamThreads.push_back(std::thread(goThroughTeam(team.value())));
+    }
+
+
     // Go through each team
+    /*
     for (auto team = teams.cbegin(), end = teams.cend(); team != end; team++)
     {
         // QMap<map, QVector<winRates>> tempMap;
@@ -55,7 +66,7 @@ QMap<team, QMap<map, winRates>> Model::getMapWinRates(QString &matchUrl)
             {
                 tempMapWinRate[map.key()] += map.value();
                 //tempMap[map.key()].append(map.value());
-                /**
+
                 if (tempMap.find(map.key()) != tempMap.end())
                 {
                     tempMap.value(map.key()).append(map.value());
@@ -64,7 +75,7 @@ QMap<team, QMap<map, winRates>> Model::getMapWinRates(QString &matchUrl)
                 {
 
                 }
-                */
+
             }
         }
         // Go through each map winrate of the team and get the average
@@ -76,6 +87,7 @@ QMap<team, QMap<map, winRates>> Model::getMapWinRates(QString &matchUrl)
         }
         mapWinRates.insert(team.key(), tempMapWinRate);
     }
+    */
     return mapWinRates;
 }
 
@@ -88,4 +100,19 @@ UserParser Model::getUserParserObject(const QString &playerName)
     QString json = networker.requestData(url);
     UserParser userInfo(json);
     return userInfo;
+}
+
+void Model::goThroughTeam(const QVector<QString> team)
+{
+
+}
+
+void Model::goThroughPlayers()
+{
+
+}
+
+void Model::goThroughMaps()
+{
+
 }

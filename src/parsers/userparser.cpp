@@ -12,18 +12,18 @@ QString UserParser::getImageUrl()
 
 int UserParser::getSkillLevel()
 {
-    QJsonObject csgo = getCsgoStats();
-    return csgo.value("skill_level").toInt();
+    QJsonObject cs2 = getCsgoStats();
+    return cs2.value("skill_level").toInt();
 }
 
 int UserParser::getFaceitElo()
 {
-    QJsonObject csgo = getCsgoStats();
-    return csgo.value("faceit_elo").toInt();
+    QJsonObject cs2 = getCsgoStats();
+    return cs2.value("faceit_elo").toInt();
 }
 
 QJsonObject UserParser::getCsgoStats()
 {
     QJsonObject games = jsonObject_.value("games").toObject();
-    return games.value("csgo").toObject();
+    return games.value("cs2").toObject();
 }

@@ -28,6 +28,9 @@ private:
     int getSkilLevel(const QString &playerName);
     QMap<team, QMap<map, winRates>> getMapWinRates(QString &matchUrl);
     UserParser getUserParserObject(const QString &playerName);
+    void goThroughTeam(const QVector<QString> team);
+    void goThroughPlayers();
+    void goThroughMaps();
 
 private slots:
 
